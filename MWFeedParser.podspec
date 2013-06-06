@@ -3,9 +3,10 @@ Pod::Spec.new do |s|
   s.version          =  '0.0.1'
   s.license          =  'MIT'
   s.summary          =  'An Objective-C RSS / Atom Feed Parser for iOS.'
-  s.homepage         =  'https://github.com/mwaterfall/MWFeedParser'
-  s.author           =  { 'Michael Waterfall' => 'mw@d3i.com' }
-  s.source           =  { :git => 'git@github.com:grantjk/MWFeedParser.git', :commit => '0b1d301877c43c80e5fe5c7f294a2a34fa62f5a7' }
+  s.homepage         =  'https://github.com/dkonst/MWFeedParser'
+  s.author           =  { 'Konstantin Dorodov' => 'dorodov@gmail.com' }
+  s.source           =  { :git => 'git@github.com:dkonst/MWFeedParser.git' , :commit => 'd19da69505ca77b596e776f1fb200ba3626b3da5'}
+  # , :commit => 'commit hash'
   s.platform         =  :ios
   s.compiler_flags   =  '-Wno-format', '-Wno-format-extra-args'
   s.framework        =  'Foundation'
@@ -24,9 +25,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Feed' do |ss|
-    ss.source_files =  'Classes/MWFeedInfo.{h,m}', 'Classes/MWFeedItem.{h,m}', 'Classes/MWFeedParser.{h,m}', 'Classes/MWFeedParser_Private.h'
+    ss.source_files =  'Classes/MWFeedInfo.{h,m}', 'Classes/MWFeedItemEnclosure.{h|m}', 'Classes/MWFeedItem.{h,m}', 'Classes/MWFeedParser.{h,m}', 'Classes/MWFeedParser_Private.h'
     dependency = 'NSString+XMLEntities'
     dependency = 'NSDate+InternetDateTime'
   end
 end
-
