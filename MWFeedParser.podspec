@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name             =  'MWFeedParser'
-  s.version          =  '0.0.1'
+  s.version          =  '0.0.2'
   s.license          =  'MIT'
   s.summary          =  'An Objective-C RSS / Atom Feed Parser for iOS.'
   s.homepage         =  'https://github.com/dkonst/MWFeedParser'
   s.author           =  { 'Konstantin Dorodov' => 'konstantin@dorodov.com' }
-  s.source           =  { :git => 'https://github.com/dkonst/MWFeedParser.git' , :commit => 'd19da69505ca77b596e776f1fb200ba3626b3da5' }
+  s.source           =  { :git => 'https://github.com/dkonst/MWFeedParser.git' , :commit => '2fe859144378520d455d80a91afc5a3f0258d83d' }
   # , :commit => 'commit hash'
   s.platform         =  :ios
   #s.compiler_flags   =  '-Wno-format', '-Wno-format-extra-args'

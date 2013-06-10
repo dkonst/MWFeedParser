@@ -161,6 +161,9 @@ typedef void (^MWFeedParserFailedBlock)(NSError *error);
 - (id)initWithFeedURL:(NSURL *)feedURL;
 - (id)initWithFeedData:(NSData *)data textEncodingName:(NSString *)textEncodingName;
 
+// Init MWFeedParser with a customized request instance
+- (id)initWithFeedRequest:(NSMutableURLRequest *)feedRequest;
+
 // Begin parsing
 - (BOOL)parse;
 

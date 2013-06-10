@@ -50,7 +50,7 @@
 
 // Properties
 @synthesize url, delegate;
-@synthesize urlConnection, xmlData, xmlTextEncodingName, connectionType;
+@synthesize request, urlConnection, xmlData, xmlTextEncodingName, connectionType;
 @synthesize feedParseType, feedParser, currentPath, currentText, currentElementAttributes, item, info;
 @synthesize pathOfElementWithXHTMLType;
 @synthesize stopped, failed, parsing;
@@ -92,10 +92,17 @@
 		if ([feedURL isKindOfClass:[NSString class]]) {
 			feedURL = [NSURL URLWithString:(NSString *)feedURL];
 		}
-		
+        
 		// Remember url
 		self.url = feedURL;
 		
+        // Create default request using legacy semantics
+        NSMutableURLRequest *req = [[[NSMutableURLRequest alloc] initWithURL:url
+                                               cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                           timeoutInterval:60] autorelease];
+        [req setValue:@"MWFeedParser" forHTTPHeaderField:@"User-Agent"];
+        
+        self.request = req;
 	}
 	return self;
 }
@@ -107,6 +114,19 @@
         self.xmlTextEncodingName = textEncodingName;
 	}
 	return self;
+}
+
+- (id)initWithFeedRequest:(NSMutableURLRequest *)feedRequest {
+    if (self = [self init]) {
+        self.url = feedRequest.URL;
+        
+        NSString * ua = [feedRequest valueForHTTPHeaderField:@"User-Agent"];
+        
+        [feedRequest setValue:[(ua && ua.length > 0 ? @"MWFeedParser-" : @"MWFeedParser") stringByAppendingString:ua ?: @""] forHTTPHeaderField:@"User-Agent"];
+        
+        self.request = feedRequest;
+    }
+    return self;
 }
 
 - (void)dealloc {
@@ -174,12 +194,6 @@
 	// Start
 	BOOL success = YES;
 	
-	// Request
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
-												  cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData 
-											  timeoutInterval:60];
-	[request setValue:@"MWFeedParser" forHTTPHeaderField:@"User-Agent"];
-	
 	// Debug Log
 	MWLog(@"MWFeedParser: Connecting & downloading feed data");
 	
@@ -187,7 +201,7 @@
 	if (connectionType == ConnectionTypeAsynchronously) {
 		
 		// Async
-		urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+		urlConnection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self];
 		if (urlConnection) {
 			xmlData = [[NSMutableData alloc] init];// Create data
 		} else {
