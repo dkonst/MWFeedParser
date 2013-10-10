@@ -28,8 +28,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MWFeedItemProtocol.h"
 
-@interface MWFeedItem : NSObject <NSCoding> {
+@interface MWFeedItem : NSObject <MWFeedItemProtocol> {
 	
 	NSString *identifier; // Item identifier
 	NSString *title; // Item title

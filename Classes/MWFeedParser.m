@@ -475,9 +475,9 @@
 
 }
 
--(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
-	return nil; // Don't cache
-}
+//-(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
+//	return nil; // Don't cache
+//}
 
 #pragma mark -
 #pragma mark XML Parsing

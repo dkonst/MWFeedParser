@@ -28,8 +28,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MWFeedInfoProtocol.h"
 
-@interface MWFeedInfo : NSObject <NSCoding> {
+@interface MWFeedInfo : NSObject <MWFeedInfoProtocol> {
 	
 	NSString *title; // Feed title
 	NSString *link; // Feed link

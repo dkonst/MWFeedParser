@@ -61,6 +61,8 @@
 		8D1107310486CEB800E47090 /* MWFeedParser-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MWFeedParser-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D971327E1436D6600037DA50 /* MWFeedItemEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItemEnclosure.h; sourceTree = "<group>"; };
 		D971327F1436D6600037DA50 /* MWFeedItemEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItemEnclosure.m; sourceTree = "<group>"; };
+		FBD297F71806BDF900E86185 /* MWFeedInfoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWFeedInfoProtocol.h; sourceTree = "<group>"; };
+		FBD297F81806BE1600E86185 /* MWFeedItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWFeedItemProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,8 @@
 				4CC89608119F0CED00ED61B6 /* MWFeedItem.m */,
 				D971327E1436D6600037DA50 /* MWFeedItemEnclosure.h */,
 				D971327F1436D6600037DA50 /* MWFeedItemEnclosure.m */,
+				FBD297F71806BDF900E86185 /* MWFeedInfoProtocol.h */,
+				FBD297F81806BE1600E86185 /* MWFeedItemProtocol.h */,
 			);
 			name = MWFeedParser;
 			sourceTree = "<group>";
@@ -225,6 +229,11 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Michael Waterfall";
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 8S4Q6QEWJ9;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MWFeedParser" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -286,6 +295,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -295,6 +306,7 @@
 				INFOPLIST_FILE = "MWFeedParser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = MWFeedParser;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = NO;
 			};
@@ -304,6 +316,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MWFeedParser_Prefix.pch;
@@ -311,6 +325,7 @@
 				INFOPLIST_FILE = "MWFeedParser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = MWFeedParser;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = NO;
 			};
